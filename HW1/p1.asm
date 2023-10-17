@@ -8,7 +8,7 @@ section .data
 
 section .text
     global _start
-    
+
 _start:
     ; Output a prompt message, asking the user to enter a file name
     mov eax, 4       ; syscall number for write (STDOUT)
@@ -17,6 +17,7 @@ _start:
     mov edx, prompt_len  ; length of the prompt string
     int 0x80         ; interrupt to invoke the syscall (write)
 
+input_file_name:
     ; Read the user's input for the file name
     mov eax, 3       ; syscall number for read (STDIN)
     mov ebx, 0       ; file descriptor for STDIN (0)
